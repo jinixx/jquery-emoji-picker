@@ -14,7 +14,8 @@
       button: true,
       buttonPosition: "left",
       enableSearch: false,
-      showDailyEmoji: false
+      showDailyEmoji: false,
+      showShortCode: false,
     };
 
   var MIN_WIDTH = 280,
@@ -123,7 +124,7 @@
     createPicker: function() {
 
       // Show template
-      this.$picker = $(getPickerHTML(this.settings.enableSearch, this.settings.showDailyEmoji))
+      this.$picker = $(getPickerHTML(this.settings.enableSearch, this.settings.showShortCode, this.settings.showDailyEmoji))
         .appendTo(this.$container)
         .width(this.settings.width)
         .height(this.settings.height)
@@ -205,11 +206,16 @@
         N.B. The removed code had a reference to top/bottom positioning, but I don't see the use case for this..
       */
 
+      // this.$picker.show();
+
       // Step 1
       // Luckily jquery already does this...
       var positionedParent = this.$picker.offsetParent();
       var parentOffset = positionedParent.offset(); // now have a top/left object
       var diffOffset;
+
+      // this.$picker.hide();
+
       // Step 2
       var elOffset = this.$el.offset(); // input offset
       if (this.settings.position == "right" || this.settings.position == "left") {
@@ -220,7 +226,7 @@
         // Step 3
         diffOffset = {
           top: (elOffset.top - parentOffset.top),
-          left: (elOffset.left - parentOffset.top)
+          left: (elOffset.left - parentOffset.left)
         };
       } else {
         if (this.settings.position == 'topRight') {
@@ -229,8 +235,9 @@
         elOffset.top -= this.settings.height;
         // Step 3
         diffOffset = {
-          top: (elOffset.top - this.$el.outerHeight()),
-          left: (elOffset.left - parentOffset.top)
+          // top: (elOffset.top - this.$el.outerHeight()),
+          top: elOffset.top,
+          left: (elOffset.left - parentOffset.left)
         };
       }
       this.$picker.css({
@@ -326,7 +333,7 @@
 
       var scrollDistance = heightOfSectionsHidden +
         heightOfSectionToPageTop -
-        heightOfSectionsToPageTop;
+        heightOfSectionsToPageTop + 1; // add 1 so i will not be in the previous tab
 
       $('.sections').off('scroll'); // Disable scroll event until animation finishes
 
@@ -451,7 +458,7 @@
 
   /* ---------------------------------------------------------------------- */
 
-  function getPickerHTML(isShowSearchInput, isShowDailyEmoji) {
+  function getPickerHTML(isShowSearchInput, isShowShortCode, isShowDailyEmoji) {
     var nodes = [];
     var aliases = {
       'undefined': 'object'
@@ -530,10 +537,12 @@
     }
     nodes.push('</div>');
 
-    // Shortcode section
-    nodes.push('<div class="shortcode"><span class="random">');
-    nodes.push('<em class="tabTitle">' + (isShowDailyEmoji ? generateEmojiOfDay() : "") + '</em>');
-    nodes.push('</span><span class="info"></span></div>');
+    if (isShowShortCode) {
+      // Shortcode section
+      nodes.push('<div class="shortcode"><span class="random">');
+      nodes.push('<em class="tabTitle">' + (isShowDailyEmoji ? generateEmojiOfDay() : "") + '</em>');
+      nodes.push('</span><span class="info"></span></div>');
+    } 
 
     nodes.push('</div>');
     return nodes.join("\n");
