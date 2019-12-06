@@ -5,7 +5,7 @@
       width: '200',
       height: '350',
       position: 'topRight',
-      fadeTime: 100,
+      fadeTime: 0,
       iconColor: 'black',
       iconBackgroundColor: '#eee',
       recentCount: 36,
@@ -249,23 +249,27 @@
     },
 
     hide: function() {
-      this.$picker.hide(this.settings.fadeTime, 'linear', function() {
+      var _onComplete = function() {
         this.active = false;
         if (this.settings.onHide) {
           this.settings.onHide(this.$picker, this.settings, this.active);
         }
-      }.bind(this));
+      }
+      // using a 1ms duration to work around the issue, could have change display instead if duration is 0
+      this.$picker.hide(this.settings.fadeTime ? this.settings.fadeTime : 1, 'linear', _onComplete.bind(this));
     },
 
     show: function() {
       this.$el.focus();
       this.updatePosition();
-      this.$picker.show(this.settings.fadeTime, 'linear', function() {
+      var _onComplete = function() {
         this.active = true;
         if (this.settings.onShow) {
           this.settings.onShow(this.$picker, this.settings, this.active);
         }
-      }.bind(this));
+      }
+      // using a 1ms duration to work around the issue, could have change display instead if duration is 0
+      this.$picker.show(this.settings.fadeTime ? this.settings.fadeTime : 1, 'linear', _onComplete.bind(this));
     },
 
     /************
