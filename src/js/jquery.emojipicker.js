@@ -4,7 +4,7 @@
     defaults = {
       width: '200',
       height: '350',
-      position: 'topLeft',
+      position: 'topRight',
       fadeTime: 100,
       iconColor: 'black',
       iconBackgroundColor: '#eee',
@@ -12,7 +12,7 @@
       emojiSet: 'apple',
       container: 'body',
       button: true,
-      buttonPosition: "left",
+      buttonPosition: 'right',
       enableSearch: false,
       showDailyEmoji: false,
       showShortCode: false,

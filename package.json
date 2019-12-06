@@ -4,7 +4,7 @@
   "description": "Add an emoji picker to any text field",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wedgies/jquery-emoji-picker.git"
+    "url": "https://github.com/jinixx/jquery-emoji-picker.git"
   },
   "keywords": [
     "emoji",
@@ -14,12 +14,18 @@
   "author": "Wedgies, Inc",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wedgies/jquery-emoji-picker/issues"
+    "url": "https://github.com/jinixx/jquery-emoji-picker/issues"
   },
-  "homepage": "https://github.com/wedgies/jquery-emoji-picker",
+  "homepage": "https://github.com/jinixx/jquery-emoji-picker",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-bump": "^0.3.0",
-    "grunt-cli": "^0.1.13"
+    "grunt": "^1.0.4",
+    "grunt-bump": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-qunit": "*",
+    "grunt-contrib-uglify": "*",
+    "matchdep": "*"
   }
 }
