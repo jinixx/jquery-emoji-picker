@@ -1,9 +1,5 @@
 # jQuery Emoji Picker #
 
-## Unmaintained Notice ##
-
-This code is not currently maintained. Feel free to fork away!
-
 ## Description ##
 
 The top 3 things your users love:
@@ -92,6 +88,22 @@ Note: 'Recently Used' will only show for the user if their browser supports HTML
 
 ### button (boolean) ###
 Whether to show the emoji button on the input or not. Defaults to true. If you hide the button, you will probably need to trigger the emoji entry manually (see below).
+
+### buttonPosition ###
+The IconButton position "left" or "right", Defualt to "left".
+
+### enableSearch ###
+Control to show or hide the searchInput, Default to false.
+
+### showShortCode ###
+Enable to show the selected emoji shortcode bar. This bar shows daily emoji as well, daily emoji will not be shown if this is disabled.
+
+### showDailyEmoji ###
+Enable to show the DailyEmoji, Default to false.
+
+### position ###
+The picker panel position, value of ["left", "right", "topLeft", "topRight"].
+
 
 ### onShow (function) ###
 Triggered once the emoji picker appears. `picker` (Object), `settings` (Object), and `isActive` (boolean) are returned. Example usage:
