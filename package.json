@@ -30,6 +30,6 @@
   "scripts": {
     "clean": "rm -rf dist/",
     "build": "npm run clean && grunt",
-    "prepack": "npm install && npm run build"
+    "prepack": "npm run build"
   }
 }
