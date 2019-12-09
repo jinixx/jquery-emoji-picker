@@ -29,6 +29,7 @@
     "matchdep": "*"
   },
   "scripts": {
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "build": "grunt"
   }
 }
