@@ -30,6 +30,7 @@
   },
   "scripts": {
     "build": "grunt",
+    "prepublish": "npm install",
     "prepare": "npm run build"
-  },
+  }
 }
