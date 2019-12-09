@@ -17,10 +17,9 @@
     "url": "https://github.com/jinixx/jquery-emoji-picker/issues"
   },
   "homepage": "https://github.com/jinixx/jquery-emoji-picker",
-  "dependencies": {
+  "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-bump": "*",
-    "grunt-contrib-clean": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-jshint": "*",
@@ -28,8 +27,10 @@
     "grunt-contrib-uglify": "*",
     "matchdep": "*"
   },
-  "scripts": {
-    "build": "cd node_modules/jquery-emoji-picker/ & grunt",
-    "prepare": "npm run build"
-  }
+  "files": [
+    "dist"
+  ],
+  "clean": "rm -rf dist/",
+  "build": "npm run clean && grunt",
+  "prepublish": "npm run build"
 }

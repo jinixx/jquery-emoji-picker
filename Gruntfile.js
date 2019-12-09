@@ -61,11 +61,10 @@ module.exports = function(grunt) {
           dest: 'dist/'
         }]
       }
-    },
-    clean: ['dist/**']
+    }
   });
 
   // grunt.loadNpmTasks('grunt-bump');
   // Default task.  
-  grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'copy']);
+  grunt.registerTask('default', ['uglify', 'cssmin', 'copy']);
 };
