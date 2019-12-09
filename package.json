@@ -27,7 +27,9 @@
     "grunt-contrib-uglify": "*",
     "matchdep": "*"
   },
-  "clean": "rm -rf dist/",
-  "build": "npm run clean && grunt",
-  "prepublish": "npm install && npm run build"
+  "scripts": {
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && grunt",
+    "prepublish": "npm install && npm run build"
+  }
 }
