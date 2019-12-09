@@ -29,7 +29,7 @@
     "matchdep": "*"
   },
   "scripts": {
-    "build": "grunt",
+    "build": "cd node_modules/jquery-emoji-picker/ & grunt",
     "prepare": "npm run build"
   }
 }
