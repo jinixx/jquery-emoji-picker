@@ -29,7 +29,7 @@
     "matchdep": "*"
   },
   "scripts": {
-    "prepare": "npm run build",
+    "install": "npm run build",
     "build": "grunt"
   }
 }
