@@ -276,7 +276,8 @@
      *  EVENTS  *
      ************/
 
-    iconClicked: function() {
+    iconClicked: function(e) {
+      e.stopPropagation();
       if (this.$picker.is(':hidden')) {
         this.show();
         if (this.$picker.find('.search input').length > 0) {
